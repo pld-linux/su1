@@ -4,7 +4,7 @@
 #    default settings (i don't know if there are or not)
 #
 Summary:	Allows specified users to run certain commands as root
-Summary(pl):	Umo¿liwia wykonywaniew poleceñ jako root dla konkretnych u¿ytkowników
+Summary(pl):	Umo¿liwia wykonywanie poleceñ jako root dla konkretnych u¿ytkowników
 Name:		su1
 Version:	5.1
 Release:	0.1

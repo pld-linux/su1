@@ -54,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(4555,root,root) %{_bindir}/su1
 %{_mandir}/man*/*
 %attr(0600,root,root) %ghost /var/log/su1
-#%%attr(0640,root,root) /etc/logrotate.d/*
+#%%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/*
 %attr(0600,root,root) %dir /var/cache/su1

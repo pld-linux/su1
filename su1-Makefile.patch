@@ -1,0 +1,43 @@
+diff -urN orig/Makefile su1-5.1/Makefile
+--- orig/Makefile	2001-08-16 10:09:54.000000000 +0200
++++ su1-5.1/Makefile	2004-04-06 21:19:27.105343592 +0200
+@@ -24,11 +24,11 @@
+ #
+ # Paths of importance.
+ #
+-BINFILE = /usr/local/bin/su1
+-MANFILE = /usr/local/man/man1/su1.1
+-PRIVFILE = /etc/su1.priv
+-CACHEFILE = /etc/su1.cache
+-PAMFILE = /etc/pam.d/su1
++BINFILE = $(DESTDIR)/usr/bin/su1
++MANFILE = $(DESTDIR)/usr/share/man/man1/su1.1
++PRIVFILE = $(DESTDIR)/etc/su1.priv
++CACHEFILE = $(DESTDIR)/var/cache/su1
++PAMFILE = $(DESTDIR)/etc/pam.d/su1
+ 
+ 
+ su1:	su1.o
+@@ -38,21 +38,15 @@
+ 	cp su1.1 $(MANFILE)
+ 	chmod 644 $(MANFILE)
+ 	cp su1 $(BINFILE)
+-	chown root $(BINFILE)
+-	chgrp root $(BINFILE)
+ 	chmod 4511 $(BINFILE)
+ 	touch $(PRIVFILE)
+-	chown root $(PRIVFILE)
+-	chgrp root $(PRIVFILE)
+ 	chmod 400 $(PRIVFILE)
+ 	cp /dev/null $(CACHEFILE)
+-	chown root $(CACHEFILE)
+-	chgrp root $(CACHEFILE)
+ 	chmod 600 $(CACHEFILE)
++	make install-pam
+ 
+ install-pam:
+ 	cp su1.pam $(PAMFILE)
+-	chown root $(PAMFILE)
+ 	chmod 644 $(PAMFILE)
+ 
+ clean:

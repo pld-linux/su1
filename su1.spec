@@ -17,8 +17,8 @@ Source0:	http://canb.auug.org.au/~dbell/programs/%{name}-%{version}.tar.gz
 #Source2:	%{name}.logrotate
 Patch0:		%{name}-Makefile.patch
 URL:		http://canb.auug.org.au/~dbell/programs/
-BuildRequires:	pam-devel
 #BuildRequires:	libselinux-devel
+BuildRequires:	pam-devel
 Requires:	pam >= 0.77.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,10 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README su1.priv.sample
-%attr(0400,root,root) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/su1.priv
-%attr(0600,root,root) %config(noreplace) %verify(not size mtime md5) /etc/pam.d/su1
+%attr(400,root,root) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/su1.priv
+%attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/su1
 %attr(4555,root,root) %{_bindir}/su1
 %{_mandir}/man*/*
-%attr(0600,root,root) %ghost /var/log/su1
+%attr(600,root,root) %ghost /var/log/su1
 #%%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/*
-%attr(0600,root,root) %dir /var/cache/su1
+%attr(600,root,root) %dir /var/cache/su1

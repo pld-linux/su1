@@ -4,7 +4,7 @@
 #    default settings (i don't know if there are or not)
 #
 Summary:	Allows specified users to run certain commands as root
-Summary(pl):	Umoøliwia wykonywanie poleceÒ jako root dla konkretnych uøytkownikÛw
+Summary(pl.UTF-8):   Umo≈ºliwia wykonywanie polece≈Ñ jako root dla konkretnych u≈ºytkownik√≥w
 Name:		su1
 Version:	5.1
 Release:	0.1
@@ -24,7 +24,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 
-%description -l pl
+%description -l pl.UTF-8
 
 %prep
 %setup -q
